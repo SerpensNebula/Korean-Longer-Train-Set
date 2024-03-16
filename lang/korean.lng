@@ -1,0 +1,26 @@
+##grflangid 0x3A
+
+# GRF name and description
+STR_GRF_NAME										:한국 더 길다란 열차 세트 0.1.0
+STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 더 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
+STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
+
+# Parameters
+STR_PARA_NAME_SPEED_POWER		                    :최고속력과 출력 계수
+STR_PARA_DESC_SPEED_POWER		                    :모든 열차의 최고속력을 설정합니다. 일부 차량은 출력도 변경됩니다. 
+STR_PARA_SPEED_POWER_OPT_1                          :x1 (기본값)
+STR_PARA_SPEED_POWER_OPT_1_5                        :x1.5
+STR_PARA_SPEED_POWER_OPT_2                          :x2
+STR_PARA_SPEED_POWER_OPT_2_5                        :x2.5
+STR_PARA_SPEED_POWER_OPT_3                          :x3
+STR_PARA_SPEED_POWER_OPT_3_5                        :x3.5
+STR_PARA_SPEED_POWER_OPT_4							:X4
+
+# Engines
+STR_NAME_LONGER_PASHI5								:더 길다란 파시 5형 증기기관차
+STR_NAME_LONGER_K7500								:더 길다란 7500호대 디젤기관차
+STR_NAME_LONGER_KTX1							    :더 길다란 KTX-1
+STR_NAME_LONGER_HEMU430X							:더 길다란 HEMU-430X
+
+# Passenger Wagons
+STR_NAME_LONGER_BIDULGI_CAR                    		:더 길다란 비둘기호 객차
