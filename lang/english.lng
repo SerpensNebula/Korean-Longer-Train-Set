@@ -1,8 +1,8 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                        :Korean Longer Train Set 0.1.0
-STR_GRF_DESC                                        :Korean Longer Train Set adds more longer vehicles of Korean Train Set. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
+STR_GRF_NAME                                        :Korean Long Train Set 0.2.0
+STR_GRF_DESC                                        :Korean Long Train Set adds some more longer vehicles of Korean Train Set. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
 # Parameters
@@ -17,10 +17,31 @@ STR_PARA_SPEED_POWER_OPT_3_5                        :x3.5
 STR_PARA_SPEED_POWER_OPT_4							:X4
 
 # Engines
-STR_NAME_LONGER_PASHI5								:Longer Pashi 5 Steam Locomotive
-STR_NAME_LONGER_K7500								:Longer 7500 Diesel Locomotive
-STR_NAME_LONGER_KTX1							    :Longer KTX-1
-STR_NAME_LONGER_HEMU430X							:Longer HEMU-430X
+STR_NAME_LONGER_PASHI5								:Long Pashi 5 Steam Locomotive
+STR_NAME_LONGER_K7000								:Long 7000 Diesel Locomotive
+STR_NAME_LONGER_K7X00								:Long 7x00 Diesel Locomotive
+STR_NAME_LONGER_K8X00								:Long 8x00 Electric Locomotive
+STR_NAME_LONGER_KTX1							    :Long KTX-1
+STR_NAME_LONGER_HEMU430X							:Long HEMU-430X
 
 # Passenger Wagons
-STR_NAME_LONGER_BIDULGI_CAR                    		:Longer Bidulgi Car
+STR_NAME_LONGER_BIDULGI_CAR                    		:Long Bidulgi Car
+STR_NAME_LONGER_TONGIL_CAR							:Long Tong-il Car
+STR_NAME_LONGER_MUGUNGHWA_CAR						:Long Mugunghwa Car
+STR_NAME_LONGER_SAEMAEUL_CAR						:Long Saemaeul Car
+
+# Variant Groups
+STR_VARI_LONGER_K7500								:Long 7500 Diesel Locomotive
+
+# Additional Texts
+STR_ADDITIONAL_LONGER_BIDULGI_CAR					:{BLACK}Feature: {GOLD}Various cars {GREEN}(random refitting)
+STR_ADDITIONAL_LONGER_TONGIL_CAR					:{BLACK}Feature: {GOLD}Generator car {GREEN}(random refitting)
+STR_ADDITIONAL_LONGER_MUGUNGHWA_CAR					:{BLACK}Feature: {GOLD}Generator car {GREEN}(random refitting)
+STR_ADDITIONAL_LONGER_SAEMAEUL_CAR					:{BLACK}Feature: {GOLD}Dining car and generator car {GREEN}(random refitting)
+STR_ADDITIONAL_LONGER_K7000_KNR						:{BLACK}Appearance: {GREEN} "KNR" Livery
+STR_ADDITIONAL_LONGER_K7000_KORAIL					:{BLACK}Appearance: {BLUE} Korail Livery
+STR_ADDITIONAL_LONGER_K7X00_TIGER					:{BLACK}Appearance: {GOLD} "Tiger" Livery
+STR_ADDITIONAL_LONGER_K7X00_KNR						:{BLACK}Appearance: {GREEN} "KNR" Livery
+STR_ADDITIONAL_LONGER_K7X00_KORAIL					:{BLACK}Appearance: {BLUE} Korail Livery
+STR_ADDITIONAL_LONGER_K8X00_KNR						:{BLACK}Appearance: {GREEN} "KNR" Livery
+STR_ADDITIONAL_LONGER_K8X00_KORAIL					:{BLACK}Appearance: {BLUE} Korail Livery

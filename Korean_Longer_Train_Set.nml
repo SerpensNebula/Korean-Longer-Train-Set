@@ -3,8 +3,8 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :240316;
-        min_compatible_version             :240313;
+        version                            :240917;
+        min_compatible_version             :240917;
 
         // Parameters
             param  0    {
@@ -80,34 +80,38 @@
     }
 
 // Passenger Wagons
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-    /* dummy
     // BIDULGI_CAR
         // Graphics
             spriteset(set_LONGER_BIDULGI_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_BIDULGI_CAR.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_graphic_LONGER_BIDULGI_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_BIDULGI_CAR.png"){
+            spriteset(set_graphic_LONGER_BIDULGI_PASS_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_BIDULGI_CAR.png"){
                 tmpl_vehicle(80, 0)
             }
 
+            spriteset(set_graphic_LONGER_BIDULGI_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_BIDULGI_CAR.png"){
+                tmpl_vehicle(80, 40)
+            }
+
         // Switches
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_BIDULGI_PASS_CAR, random_bits % 3) {  
+                1..2: set_graphic_LONGER_BIDULGI_PASS_A_CAR;
+                set_graphic_LONGER_BIDULGI_PASS_B_CAR;
+            }
+
             switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_BIDULGI_CAR, position_in_articulated_veh) {
-                1: set_graphic_LONGER_BIDULGI_CAR;
-                2: set_16rotations_vehicle_empty;
-                set_16rotations_vehicle_empty;
+                1: sw_random_graphic_LONGER_BIDULGI_PASS_CAR;
+                set_vehicle_empty;
             }
 
             switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_BIDULGI_CAR, position_in_articulated_veh) {
                 1: 100;
-                2: 0;
                 0;
             }
 
             switch (FEAT_TRAINS, SELF, sw_length_LONGER_BIDULGI_CAR, position_in_articulated_veh) {
                 1: 8;
-                2: 2;
                 2;
             }
 
@@ -122,12 +126,12 @@
                     // Common properties
                     name:                           string(STR_NAME_LONGER_BIDULGI_CAR);
                     climates_available:             ALL_CLIMATES;
-                    introduction_date:              date(1984, 1, 1);
+                    introduction_date:              date(1996, 1, 1);
                     track_type:                     RAIL;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
 
                     // Spec
-                    speed:                          0 km/h;
+                    speed:                          110 km/h;
                     weight:                         26 ton;
 
                     // Model
@@ -158,14 +162,373 @@
                     purchase:                       set_LONGER_BIDULGI_CAR_purchase;
                     purchase_cargo_capacity:        set_LONGER_BIDULGI_CAR_purchase;
 
+                    additional_text:                string(STR_ADDITIONAL_LONGER_BIDULGI_CAR);
                 }
             }
-    */
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+    // TONGIL_CAR
+        // Graphics
+            spriteset(set_LONGER_TONGIL_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_PASS_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 40)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_GENE_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 80)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_GENE_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 120)
+            }
+
+        // Switches
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_TONGIL_PASS_CAR, random_bits % 3) {  
+                1..2: set_graphic_LONGER_TONGIL_PASS_A_CAR;
+                set_graphic_LONGER_TONGIL_PASS_B_CAR;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_TONGIL_GENE_CAR, random_bits % 2) {  
+                1: set_graphic_LONGER_TONGIL_GENE_A_CAR;
+                set_graphic_LONGER_TONGIL_GENE_B_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_TONGIL_PASS_CAR, num_vehs_in_vehid_chain / 3 ) {
+                sw_random_graphic_LONGER_TONGIL_PASS_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_TONGIL_GENE_CAR, num_vehs_in_vehid_chain / 3 ) {
+                sw_random_graphic_LONGER_TONGIL_GENE_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_TONGIL_CAR, position_in_vehid_chain_from_end) {
+                1: sw_graphic_LONGER_TONGIL_GENE_CAR;
+                sw_graphic_LONGER_TONGIL_PASS_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_TONGIL_CAR, position_in_vehid_chain % 3) {
+                1: sw_graphic_general_LONGER_TONGIL_CAR;
+                set_vehicle_empty;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_front_LONGER_TONGIL_CAR, num_vehs_in_vehid_chain / 3 ) {
+                72;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_general_LONGER_TONGIL_CAR, position_in_vehid_chain_from_end) {
+                1: 0;
+                sw_capacity_front_LONGER_TONGIL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_TONGIL_CAR, position_in_vehid_chain % 3) {
+                1: sw_capacity_general_LONGER_TONGIL_CAR;
+                0;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_front_LONGER_TONGIL_CAR, num_vehs_in_vehid_chain / 3 ) { // 나머지 전부 길이 8
+                8;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_general_LONGER_TONGIL_CAR, position_in_vehid_chain_from_end) { // 끝에서 첫째 차량 발전차; 나머지는 다음으로 넘김
+                1: 4;
+                sw_length_front_LONGER_TONGIL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_LONGER_TONGIL_CAR, position_in_vehid_chain % 3) { // 3칸씩 반복; 가운데를 뺀 나머지는 2
+                1: sw_length_general_LONGER_TONGIL_CAR;
+                2;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_TONGIL_CAR, extra_callback_info1) {
+                1..2: return ko_LONGER_TONGIL_CAR; //use same vehicle for all parts
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_TONGIL_CAR, 6020) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_TONGIL_CAR);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1996, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    speed:                          121*(para_speed_power)/2 km/h;
+                    weight:                         17 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 72/3;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_NONE;
+                    //running_cost_factor:          64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_graphic_LONGER_TONGIL_CAR;
+                    articulated_part:               sw_articulated_LONGER_TONGIL_CAR;
+                    length:                         sw_length_LONGER_TONGIL_CAR;
+                    cargo_capacity:                 sw_capacity_LONGER_TONGIL_CAR;
+                    purchase:                       set_LONGER_TONGIL_CAR_purchase;
+                    purchase_cargo_capacity:        set_LONGER_TONGIL_CAR_purchase;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_TONGIL_CAR);
+                }
+            }
+
+    // MUGUNGHWA_CAR
+        // Graphics
+            spriteset(set_LONGER_MUGUNGHWA_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_PASSENGER_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_PASSENGER_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 40)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_GENERATOR_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 80)
+            }
+
+        // Switches
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_MUGUNGHWA_CAR, random_bits % 3) {  
+                1..2: set_graphic_LONGER_MUGUNGHWA_PASSENGER_A_CAR;
+                set_graphic_LONGER_MUGUNGHWA_PASSENGER_B_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_front_LONGER_MUGUNGHWA_CAR, num_vehs_in_vehid_chain / 3 ) {
+                sw_random_graphic_LONGER_MUGUNGHWA_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain_from_end) {
+                1: set_graphic_LONGER_MUGUNGHWA_GENERATOR_CAR;
+                sw_graphic_front_LONGER_MUGUNGHWA_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain % 3) {
+                1: sw_graphic_general_LONGER_MUGUNGHWA_CAR;
+                set_vehicle_empty;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_front_LONGER_MUGUNGHWA_CAR, num_vehs_in_vehid_chain / 3 ) {
+                72;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_general_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain_from_end) {
+                1: 0;
+                sw_capacity_front_LONGER_MUGUNGHWA_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain % 3) {
+                1: sw_capacity_general_LONGER_MUGUNGHWA_CAR;
+                0;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_front_LONGER_MUGUNGHWA_CAR, num_vehs_in_vehid_chain / 3 ) { // 나머지 전부 길이 8
+                8;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_general_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain_from_end) { // 끝에서 첫째 차량 발전차; 나머지는 다음으로 넘김
+                1: 6;
+                sw_length_front_LONGER_MUGUNGHWA_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_LONGER_MUGUNGHWA_CAR, position_in_vehid_chain % 3) { // 3칸씩 반복; 가운데를 뺀 나머지는 2
+                1: sw_length_general_LONGER_MUGUNGHWA_CAR;
+                2;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_MUGUNGHWA_CAR, extra_callback_info1) {
+                1..2: return ko_LONGER_MUGUNGHWA_CAR; //use same vehicle for all parts
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_MUGUNGHWA_CAR, 6040) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_MUGUNGHWA_CAR);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1996, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    weight:                         17 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 72/3;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_NONE;
+                    //running_cost_factor:          64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_graphic_LONGER_MUGUNGHWA_CAR;
+                    articulated_part:               sw_articulated_LONGER_MUGUNGHWA_CAR;
+                    length:                         sw_length_LONGER_MUGUNGHWA_CAR;
+                    cargo_capacity:                 sw_capacity_LONGER_MUGUNGHWA_CAR;
+                    purchase:                       set_LONGER_MUGUNGHWA_CAR_purchase;
+                    purchase_cargo_capacity:        set_LONGER_MUGUNGHWA_CAR_purchase;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_MUGUNGHWA_CAR);
+                }
+            }
+
+    // SAEMAEUL_CAR
+        // Graphics
+            spriteset(set_LONGER_SAEMAEUL_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_SAEMAEUL_CAR.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_graphic_LONGER_SAEMAEUL_PASSENGER_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_SAEMAEUL_CAR.png"){
+                tmpl_vehicle(80, 0)
+            }
+
+            spriteset(set_graphic_LONGER_SAEMAEUL_DINING_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_SAEMAEUL_CAR.png"){
+                tmpl_vehicle(80, 40)
+            }
+
+            spriteset(set_graphic_LONGER_SAEMAEUL_GENERATOR_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_SAEMAEUL_CAR.png"){
+                tmpl_vehicle(80, 80)
+            }
+
+        // Switches
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_SAEMAEUL_CAR, random_bits % 6) {  
+                1..5: set_graphic_LONGER_SAEMAEUL_PASSENGER_CAR;
+                set_graphic_LONGER_SAEMAEUL_DINING_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_front_LONGER_SAEMAEUL_CAR, num_vehs_in_vehid_chain / 3 ) {
+                sw_random_graphic_LONGER_SAEMAEUL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_SAEMAEUL_CAR, position_in_vehid_chain_from_end) {
+                1: set_graphic_LONGER_SAEMAEUL_GENERATOR_CAR;
+                sw_graphic_front_LONGER_SAEMAEUL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_SAEMAEUL_CAR, position_in_vehid_chain % 3) {
+                1: sw_graphic_general_LONGER_SAEMAEUL_CAR;
+                set_vehicle_empty;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_front_LONGER_SAEMAEUL_CAR, num_vehs_in_vehid_chain / 3 ) {
+                64;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_general_LONGER_SAEMAEUL_CAR, position_in_vehid_chain_from_end) {
+                1: 0;
+                sw_capacity_front_LONGER_SAEMAEUL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_SAEMAEUL_CAR, position_in_vehid_chain % 3) {
+                1: sw_capacity_general_LONGER_SAEMAEUL_CAR;
+                0;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_front_LONGER_SAEMAEUL_CAR, num_vehs_in_vehid_chain / 3 ) { // 나머지 전부 길이 8
+                8;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_general_LONGER_SAEMAEUL_CAR, position_in_vehid_chain_from_end) { // 끝에서 첫째 차량 발전차; 나머지는 다음으로 넘김
+                1: 6;
+                sw_length_front_LONGER_SAEMAEUL_CAR;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_length_LONGER_SAEMAEUL_CAR, position_in_vehid_chain % 3) { // 3칸씩 반복; 가운데를 뺀 나머지는 2
+                1: sw_length_general_LONGER_SAEMAEUL_CAR;
+                2;
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_SAEMAEUL_CAR, extra_callback_info1) {
+                1..2: return ko_LONGER_SAEMAEUL_CAR; //use same vehicle for all parts
+                return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_SAEMAEUL_CAR, 6060) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_SAEMAEUL_CAR);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(2003, 1, 1);
+                    track_type:                     RAIL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+
+                    // Spec
+                    weight:                         20 ton;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 64/3;
+                    loading_speed:                  5;
+
+                    // Costs
+                    cost_factor:                    80;
+                    running_cost_base:              RUNNING_COST_NONE;
+                    //running_cost_factor:          64;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+
+                graphics {
+                    default:                        sw_graphic_LONGER_SAEMAEUL_CAR;
+                    articulated_part:               sw_articulated_LONGER_SAEMAEUL_CAR;
+                    length:                         sw_length_LONGER_SAEMAEUL_CAR;
+                    cargo_capacity:                 sw_capacity_LONGER_SAEMAEUL_CAR;
+                    purchase:                       set_LONGER_SAEMAEUL_CAR_purchase;
+                    purchase_cargo_capacity:        set_LONGER_SAEMAEUL_CAR_purchase;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_SAEMAEUL_CAR);
+                }
+            }
 
 // Locomotives
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-    /* dummy
     // LONGER_PASHI5
         // Graphics
             spriteset(set_LONGER_PASHI5_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_PASHI5.png") {
@@ -229,7 +592,7 @@
                 property {
                     // Common properties
                     name:                           string(STR_NAME_LONGER_PASHI5);
-                    climates_available:             ALL_CLIMATES;
+                    climates_available:             NO_CLIMATE;
                     introduction_date:              date(1939, 1, 1);
                     track_type:                     RAIL;
                     engine_class:                   ENGINE_CLASS_STEAM;
@@ -273,41 +636,207 @@
                 }
             }
 
-    // LONGER_K7500
+    // LONGER_K7000_KNR
         // Graphics
-            spriteset(set_LONGER_K7500_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_K7500.png") {
+            spriteset(set_purchase_LONGER_K7000_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K7000.png") {
+                tmpl_purchase(0, 40)
+            }
+
+            spriteset(set_graphic_LONGER_K7000_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K7000.png") {
+                tmpl_vehicle(80, 40)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K7000_KNR, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K7000_KNR;
+                2: set_vehicle_empty;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K7000_KNR, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K7000_KNR, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K7000_KNR;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_LONGER_K7000_visual_effect, position_in_articulated_veh) {
+                0: visual_effect_and_powered(VISUAL_EFFECT_DIESEL, -3, DISABLE_WAGON_POWER);
+                VISUAL_EFFECT_DISABLE;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K7000_KNR, 6111) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K7000);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1996, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_DIESEL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          2459*(para_speed_power)/2 kW;
+                    weight:                         119 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K7000_KNR;
+                    articulated_part:               sw_articulated_part_LONGER_K7000_KNR;
+                    length:                         sw_length_LONGER_K7000_KNR;
+                    purchase:                       set_purchase_LONGER_K7000_KNR;
+                    visual_effect_and_powered:      sw_LONGER_K7000_visual_effect;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K7000_KNR);
+                }
+            }
+
+    // LONGER_K7000_KORAIL
+        // Graphics
+            spriteset(set_purchase_LONGER_K7000_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K7000.png") {
+                tmpl_purchase(0, 80)
+            }
+
+            spriteset(set_graphic_LONGER_K7000_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K7000.png") {
+                tmpl_vehicle(80, 80)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K7000_KORAIL, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K7000_KORAIL;
+                2: set_vehicle_empty;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K7000_KORAIL, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K7000_KORAIL, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K7000_KORAIL;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K7000_KORAIL, 6112) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K7000);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(2003, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_DIESEL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+                    variant_group:                  ko_LONGER_K7000_KNR;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          2459*(para_speed_power)/2 kW;
+                    weight:                         119 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K7000_KORAIL;
+                    articulated_part:               sw_articulated_part_LONGER_K7000_KORAIL;
+                    length:                         sw_length_LONGER_K7000_KORAIL;
+                    purchase:                       set_purchase_LONGER_K7000_KORAIL;
+                    visual_effect_and_powered:      sw_LONGER_K7000_visual_effect;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K7000_KORAIL);
+                }
+            }
+
+    // LONGER_K7X00_TIGER
+        // Graphics
+            spriteset(set_purchase_LONGER_K7X00_TIGER, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
                 tmpl_purchase(0, 0)
             }
 
-            spriteset(set_LONGER_K7500_graphic, "./Korean_Longer_Train_Set/gfx/LONGER_K7500.png") {
+            spriteset(set_graphic_LONGER_K7X00_TIGER, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
                 tmpl_vehicle(80, 0)
             }
 
         // Switches
 
-            switch(FEAT_TRAINS, SELF, sw_LONGER_K7500_graphic, position_in_articulated_veh) {
-                1: set_LONGER_K7500_graphic;
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K7X00_TIGER, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K7X00_TIGER;
                 2: set_vehicle_empty;
                 set_vehicle_empty;
             }            
 
-            switch(FEAT_TRAINS, SELF, sw_LONGER_K7500_length, position_in_articulated_veh) {
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K7X00_TIGER, position_in_articulated_veh) {
                 1: 8;
-                2: 2;
                 2;
             }
 
-            switch(FEAT_TRAINS, SELF, sw_LONGER_K7500_articulated_part, extra_callback_info1) { // articulated parts
-                1..2: ko_LONGER_K7500;
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K7X00_TIGER, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K7X00_TIGER;
                 CB_RESULT_NO_MORE_ARTICULATED_PARTS;
             }
 
+            switch(FEAT_TRAINS, SELF, sw_LONGER_K7X00_visual_effect, position_in_articulated_veh) {
+                0: visual_effect_and_powered(VISUAL_EFFECT_DIESEL, -3, DISABLE_WAGON_POWER);
+                VISUAL_EFFECT_DISABLE;
+            }
+
         // General
-            item(FEAT_TRAINS, ko_LONGER_K7500, 6110) {
+            item(FEAT_TRAINS, ko_LONGER_K7X00_TIGER, 6120) {
                 property {
                     // Common properties
-                    name:                           string(STR_NAME_LONGER_K7500);
-                    climates_available:             ALL_CLIMATES;
+                    name:                           string(STR_NAME_LONGER_K7X00);
+                    climates_available:             NO_CLIMATE;
                     introduction_date:              date(1971, 1, 1);
                     track_type:                     RAIL;
                     engine_class:                   ENGINE_CLASS_DIESEL;
@@ -342,15 +871,326 @@
                 }
        
                 graphics {
-                    default:                        sw_LONGER_K7500_graphic;
-                    articulated_part:               sw_LONGER_K7500_articulated_part;
-                    length:                         sw_LONGER_K7500_length;
-                    purchase:                       set_LONGER_K7500_purchase;
+                    default:                        sw_graphic_LONGER_K7X00_TIGER;
+                    articulated_part:               sw_articulated_part_LONGER_K7X00_TIGER;
+                    length:                         sw_length_LONGER_K7X00_TIGER;
+                    purchase:                       set_purchase_LONGER_K7X00_TIGER;
+                    visual_effect_and_powered:      sw_LONGER_K7X00_visual_effect;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K7X00_TIGER);
                 }
             }
 
-    */
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // LONGER_K7X00_KNR
+        // Graphics
+            spriteset(set_purchase_LONGER_K7X00_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
+                tmpl_purchase(0, 40)
+            }
+
+            spriteset(set_graphic_LONGER_K7X00_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
+                tmpl_vehicle(80, 40)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K7X00_KNR, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K7X00_KNR;
+                2: set_vehicle_empty;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K7X00_KNR, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K7X00_KNR, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K7X00_KNR;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K7X00_KNR, 6121) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K7X00);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1996, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_DIESEL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+                    variant_group:                  ko_LONGER_K7X00_TIGER;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          2238*(para_speed_power)/2 kW;
+                    weight:                         126 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K7X00_KNR;
+                    articulated_part:               sw_articulated_part_LONGER_K7X00_KNR;
+                    length:                         sw_length_LONGER_K7X00_KNR;
+                    purchase:                       set_purchase_LONGER_K7X00_KNR;
+                    visual_effect_and_powered:      sw_LONGER_K7X00_visual_effect;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K7X00_KNR);
+                }
+            }
+
+    // LONGER_K7X00_KORAIL
+        // Graphics
+            spriteset(set_purchase_LONGER_K7X00_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
+                tmpl_purchase(0, 80)
+            }
+
+            spriteset(set_graphic_LONGER_K7X00_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K7X00.png") {
+                tmpl_vehicle(80, 80)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K7X00_KORAIL, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K7X00_KORAIL;
+                2: set_vehicle_empty;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K7X00_KORAIL, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K7X00_KORAIL, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K7X00_KORAIL;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K7X00_KORAIL, 6122) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K7X00);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(2005, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_DIESEL;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+                    variant_group:                  ko_LONGER_K7X00_TIGER;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          2238*(para_speed_power)/2 kW;
+                    weight:                         126 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_DIESEL;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K7X00_KORAIL;
+                    articulated_part:               sw_articulated_part_LONGER_K7X00_KORAIL;
+                    length:                         sw_length_LONGER_K7X00_KORAIL;
+                    purchase:                       set_purchase_LONGER_K7X00_KORAIL;
+                    visual_effect_and_powered:      sw_LONGER_K7X00_visual_effect;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K7X00_KORAIL);
+                }
+            }
+
+    // LONGER_K8X00_KNR
+        // Graphics
+            spriteset(set_purchase_LONGER_K8X00_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K8X00.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            spriteset(set_graphic_LONGER_K8X00_KNR, "./Korean_Longer_Train_Set/gfx/LONGER_K8X00.png") {
+                tmpl_vehicle(80, 0)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K8X00_KNR, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K8X00_KNR;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K8X00_KNR, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K8X00_KNR, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K8X00_KNR;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K8X00_KNR, 6130) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K8X00);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(1998, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_ELECTRIC;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          5200*(para_speed_power)/2 kW;
+                    weight:                         88 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_ELECTRIC;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K8X00_KNR;
+                    articulated_part:               sw_articulated_part_LONGER_K8X00_KNR;
+                    length:                         sw_length_LONGER_K8X00_KNR;
+                    purchase:                       set_purchase_LONGER_K8X00_KNR;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K8X00_KNR);
+                }
+            }
+
+    // LONGER_K8X00_KORAIL
+        // Graphics
+            spriteset(set_purchase_LONGER_K8X00_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K8X00.png") {
+                tmpl_purchase(0, 40)
+            }
+
+            spriteset(set_graphic_LONGER_K8X00_KORAIL, "./Korean_Longer_Train_Set/gfx/LONGER_K8X00.png") {
+                tmpl_vehicle(80, 40)
+            }
+
+        // Switches
+
+            switch(FEAT_TRAINS, SELF, sw_graphic_LONGER_K8X00_KORAIL, position_in_articulated_veh) {
+                1: set_graphic_LONGER_K8X00_KORAIL;
+                set_vehicle_empty;
+            }            
+
+            switch(FEAT_TRAINS, SELF, sw_length_LONGER_K8X00_KORAIL, position_in_articulated_veh) {
+                1: 8;
+                2;
+            }
+
+            switch(FEAT_TRAINS, SELF, sw_articulated_part_LONGER_K8X00_KORAIL, extra_callback_info1) { // articulated parts
+                1..2: ko_LONGER_K8X00_KORAIL;
+                CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+            }
+
+        // General
+            item(FEAT_TRAINS, ko_LONGER_K8X00_KORAIL, 6131) {
+                property {
+                    // Common properties
+                    name:                           string(STR_NAME_LONGER_K8X00);
+                    climates_available:             ALL_CLIMATES;
+                    introduction_date:              date(2003, 1, 1);
+                    track_type:                     RAIL;
+                    engine_class:                   ENGINE_CLASS_ELECTRIC;
+                    sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                    dual_headed:                    0;
+                    variant_group:                  ko_LONGER_K8X00_KNR;
+
+                    // Spec
+                    speed:                          151*(para_speed_power)/2 km/h;
+                    power:                          5200*(para_speed_power)/2 kW;
+                    weight:                         88 ton;
+                    tractive_effort_coefficient:    0.25;
+                    air_drag_coefficient:           0.01;
+
+                    // Model
+                    model_life:                     VEHICLE_NEVER_EXPIRES;
+                    vehicle_life:                   30;
+                    retire_early:                   0;
+                    reliability_decay:              0;
+
+                    // Cargo
+                    cargo_capacity:                 0;
+
+                    // Costs
+                    cost_factor:                    8;
+                    refit_cost:                     0;
+                    running_cost_base:              RUNNING_COST_ELECTRIC;
+                    running_cost_factor:            128;
+
+                    // Flags
+                    ai_special_flag:                AI_FLAG_PASSENGER;
+                    bitmask_vehicle_info:           0;
+                }
+       
+                graphics {
+                    default:                        sw_graphic_LONGER_K8X00_KORAIL;
+                    articulated_part:               sw_articulated_part_LONGER_K8X00_KORAIL;
+                    length:                         sw_length_LONGER_K8X00_KORAIL;
+                    purchase:                       set_purchase_LONGER_K8X00_KORAIL;
+
+                    additional_text:                string(STR_ADDITIONAL_LONGER_K8X00_KORAIL);
+                }
+            }
 
     // LONGER_KTX1
         // Graphics
@@ -735,16 +1575,22 @@
 
 // Sort
     sort(FEAT_TRAINS, [        
-        // ko_LONGER_BIDULGI_CAR,                                          // 6000
-        // ko_LONGER_TONGIL_CAR,                                           // 6001
-        // ko_LONGER_MUGUNGHWA_CAR,                                        // 6002
-        // ko_LONGER_SAEMAEUL_CAR,                                         // 6003
+        ko_LONGER_BIDULGI_CAR,                                              // 6000
+        ko_LONGER_TONGIL_CAR,                                               // 6020
+        ko_LONGER_MUGUNGHWA_CAR,                                            // 6040
+        ko_LONGER_SAEMAEUL_CAR,                                             // 6060
 
-        // ko_LONGER_PASHI5,                                               // 6100
-        // ko_LONGER_K7500,                                                // 6110
-        // ko_LONGER_K8500,                                                // 6120
+        ko_LONGER_PASHI5,                                                   // 6100
+        // ko_LONGER_K7000_MILK,                                            // 6110
+        ko_LONGER_K7000_KNR,                                                // 6111
+        ko_LONGER_K7000_KORAIL,                                             // 6112
+        ko_LONGER_K7X00_TIGER,                                              // 6120
+        ko_LONGER_K7X00_KNR,                                                // 6121
+        ko_LONGER_K7X00_KORAIL,                                             // 6122
+        ko_LONGER_K8X00_KNR,                                                // 6130
+        ko_LONGER_K8X00_KORAIL,                                             // 6131
 
-        // ko_LONGER_SAEMAEUL_PP,                                          // 6200
-        ko_LONGER_KTX1,                                                 // 6210
-        ko_LONGER_HEMU430X,                                            // 6220
+        // ko_LONGER_SAEMAEUL_PP,                                           // 6200
+        ko_LONGER_KTX1,                                                     // 6210
+        ko_LONGER_HEMU430X,                                                 // 6220
     ]);
