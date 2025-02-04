@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME										:한국 길다란 열차 세트 0.2.0
+STR_GRF_NAME										:한국 길다란 열차 세트 0.4.0
 STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
@@ -16,32 +16,45 @@ STR_PARA_SPEED_POWER_OPT_3                          :x3
 STR_PARA_SPEED_POWER_OPT_3_5                        :x3.5
 STR_PARA_SPEED_POWER_OPT_4							:X4
 
+# Multiple Units
+STR_NAME_LONGER_SAEMAEUL_DHC						:디젤유압동차 (DHC, PP)
+STR_NAME_LONGER_KTX1							    :KTX-1
+STR_NAME_LONGER_HEMU430X							:HEMU-430X
+
 # Engines
-STR_NAME_LONGER_K7000								:길다란 7000호대 디젤기관차
-STR_NAME_LONGER_K7X00								:길다란 7x00호대 디젤기관차
-STR_NAME_LONGER_K8X00								:길다란 8x00호대 전기기관차
-STR_NAME_LONGER_PASHI5								:길다란 파시 5형 증기기관차
-STR_NAME_LONGER_KTX1							    :길다란 KTX-1
-STR_NAME_LONGER_HEMU430X							:길다란 HEMU-430X
+STR_NAME_LONGER_K7000								:7000호대 디젤기관차
+STR_NAME_LONGER_K7X00								:7x00호대 디젤기관차
+STR_NAME_LONGER_K8X00								:8x00호대 전기기관차
+STR_NAME_LONGER_PASHI5								:파시 5형 증기기관차
 
 # Passenger Wagons
-STR_NAME_LONGER_BIDULGI_CAR                    		:길다란 비둘기호 객차
-STR_NAME_LONGER_TONGIL_CAR							:길다란 통일호 객차
-STR_NAME_LONGER_MUGUNGHWA_CAR						:길다란 무궁화호 객차
-STR_NAME_LONGER_SAEMAEUL_CAR						:길다란 새마을호 객차
-
-# Variant Groups
-STR_VARI_LONGER_K7500								:길다란 7500호대 디젤기관차
+STR_NAME_LONGER_BIDULGI_CAR		                 	:비둘기호 객차
+STR_NAME_LONGER_TONGIL_CAR							:통일호 객차
+STR_NAME_LONGER_MUGUNGHWA_CAR						:무궁화호 객차
+STR_NAME_LONGER_SAEMAEUL_CAR						:새마을호 객차
 
 # Additional Texts
-STR_ADDITIONAL_LONGER_BIDULGI_CAR					:{BLACK}특성: {GOLD}일반형 롱시트 또는 통일호 격하형 객차 {GREEN}(랜덤 차량)
-STR_ADDITIONAL_LONGER_TONGIL_CAR					:{BLACK}특성: {GOLD}일반형 또는 무궁화호 격하형 객차, 맨 끝 차량은 일반형 또는 유선형 발전차 {GREEN}(랜덤 차량)
-STR_ADDITIONAL_LONGER_MUGUNGHWA_CAR					:{BLACK}특성: {GOLD}나뭇결 또는 리미트 객차, 맨 끝 차량은 장대형 발전차 {GREEN}(랜덤 차량)
-STR_ADDITIONAL_LONGER_SAEMAEUL_CAR					:{BLACK}특성: {GOLD}일부는 식당차, 맨 끝 차량은 장대형 발전차 {GREEN}(랜덤 차량)
-STR_ADDITIONAL_LONGER_K7000_KNR						:{BLACK}도색: {GREEN} "철도청" 도색
-STR_ADDITIONAL_LONGER_K7000_KORAIL					:{BLACK}도색: {BLUE} 코레일 도색
-STR_ADDITIONAL_LONGER_K7X00_TIGER					:{BLACK}도색: {GOLD} "호랑이" 도색
-STR_ADDITIONAL_LONGER_K7X00_KNR						:{BLACK}도색: {GREEN} "철도청" 도색
-STR_ADDITIONAL_LONGER_K7X00_KORAIL					:{BLACK}도색: {BLUE} 코레일 도색
-STR_ADDITIONAL_LONGER_K8X00_KNR						:{BLACK}도색: {GREEN} "철도청" 도색
-STR_ADDITIONAL_LONGER_K8X00_KORAIL					:{BLACK}도색: {BLUE} 코레일 도색
+STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}특성: {GOLD}일반형 객차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_BIDULGI_KNR_CAR				:{BLACK}특성: {GREEN}"철도청" 도색 {}{GOLD}일반형 객차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_TONGIL_MILDSTEAL_CAR			:{BLACK}특성: {GOLD}일반형 객차, 맨 끝 차량은 일반형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_TONGIL_KNR_NAVY_CAR			:{BLACK}특성: {GREEN}"철도청" 도색 {BLUE}(군청색) {}{GOLD}일반형 객차, 맨 끝 차량은 일반형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_TONGIL_KNR_GREEN_CAR			:{BLACK}특성: {GREEN}"철도청" 도색 {}{GOLD}일반형 객차, 맨 끝 차량은 일반형 또는 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_MUGUNGHWA_MILDSTEAL_CAR		:{BLACK}특성: {GOLD}일반형 객차, 일부 차량은 식당차, 맨 끝 차량은 일반형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_MUGUNGHWA_RY_CAR				:{BLACK}특성: {GOLD}클래식 객차, 맨 끝 차량은 일반형 또는 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_MUGUNGHWA_RB_CAR				:{BLACK}특성: {GOLD}나뭇결 또는 리미트 객차, 맨 끝 차량은 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_SAEMAEUL_MILDSTEAL_CAR		:{BLACK}특성: {WHITE}"우유" 도색 {}{GOLD}일반형 객차, 일부 차량은 식당차, 맨 끝 차량은 전망형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_SAEMAEUL_STAINLESS_CAR		:{BLACK}특성: {WHITE}"우유" 도색 {}{GOLD}유선형 또는 장대형 객차, 일부 차량은 식당차, 맨 끝 차량은 일반형 또는 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_SAEMAEUL_KNR_CAR				:{BLACK}특성: {GREEN}"철도청" 도색 {}{GOLD}장대형 객차, 일부 차량은 식당차, 맨 끝 차량은 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDITIONAL_LONGER_SAEMAEUL_RB_CAR				:{BLACK}특성: {GOLD}장대형 객차, 일부 차량은 식당차, 맨 끝 차량은 장대형 발전차 {GREEN}(랜덤 차량)
+STR_ADDI_LONGER_SAEMAEUL_DHC_GOCHUJANG				:{BLACK}특성: {RED}"고추장" 도색 {}{GOLD}8량 고정편성
+STR_ADDI_LONGER_SAEMAEUL_DHC_KNR					:{BLACK}특성: {GREEN}"철도청" 도색 {}{GOLD}8량 고정편성
+STR_ADDI_LONGER_SAEMAEUL_DHC_RB						:{BLACK}특성: {BLUE}코레일 도색 {}{GOLD}8량 고정편성
+
+STR_ADDI_GWANGWANGHO								:{BLACK}도색: {WHITE}"우유" 도색 {BLUE}(관광호)
+STR_ADDI_MILK										:{BLACK}도색: {WHITE}"우유" 도색
+STR_ADDI_TIGER										:{BLACK}도색: {GOLD}"호랑이" 도색
+STR_ADDI_KNR 										:{BLACK}도색: {GREEN}"철도청" 도색
+STR_ADDI_KORAIL										:{BLACK}도색: {BLUE}코레일 도색
+
+STR_ADDI_FIXED_8									:{BLACK}특성: {GOLD}8량 고정편성
+STR_ADDI_FIXED_20									:{BLACK}특성: {GOLD}20량 고정편성
