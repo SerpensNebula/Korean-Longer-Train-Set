@@ -1,4 +1,4 @@
-# Korean-Longer-Train-Set 0.3.0
+# Korean-Longer-Train-Set 0.3.1
 
 This is main page of Korean Longer Train Set, a NewGRF of OpenTTD.
 
