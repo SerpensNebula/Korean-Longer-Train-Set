@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                        :Korean Long Train Set 0.4.0
+STR_GRF_NAME                                        :Korean Long Train Set 0.3.1
 STR_GRF_DESC                                        :Korean Long Train Set adds some more longer vehicles of Korean Train Set. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 

@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :250204;
+        version                            :250206;
         min_compatible_version             :250204;
 
         // Parameters
@@ -272,8 +272,12 @@
                 tmpl_vehicle(80, 40)
             }
 
-            spriteset(set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+            spriteset(set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR_A, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 80)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR_B, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 120)
             }
 
         // Switches
@@ -286,8 +290,13 @@
                 sw_random_graphic_LONGER_TONGIL_MILDSTEAL_PASS_CAR;
             }
 
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR, random_bits % 3) {  
+                1: set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR_A;
+                set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR_B;
+            }
+
             switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR, num_vehs_in_vehid_chain / 3 ) {
-                set_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR;
+                sw_random_graphic_LONGER_TONGIL_MILDSTEAL_GENE_CAR;
             }
 
             switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_TONGIL_MILDSTEAL_CAR, position_in_vehid_chain_from_end) {
@@ -382,19 +391,19 @@
     // TONGIL_KNR_NAVY_CAR
         // Graphics
             spriteset(set_LONGER_TONGIL_KNR_NAVY_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png") {
-                tmpl_purchase(0, 120)
+                tmpl_purchase(0, 160)
             }
 
             spriteset(set_graphic_LONGER_TONGIL_KNR_NAVY_PASS_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
-                tmpl_vehicle(80, 120)
-            }
-
-            spriteset(set_graphic_LONGER_TONGIL_KNR_NAVY_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 160)
             }
 
-            spriteset(set_graphic_LONGER_TONGIL_KNR_NAVY_GENE_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+            spriteset(set_graphic_LONGER_TONGIL_KNR_NAVY_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 200)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_KNR_NAVY_GENE_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 240)
             }
 
         // Switches
@@ -504,23 +513,23 @@
     // TONGIL_KNR_GREEN_CAR
         // Graphics
             spriteset(set_LONGER_TONGIL_KNR_GREEN_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png") {
-                tmpl_purchase(0, 240)
+                tmpl_purchase(0, 280)
             }
 
             spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_PASS_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
-                tmpl_vehicle(80, 240)
-            }
-
-            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 280)
             }
 
-            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_GENE_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_PASS_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 320)
             }
 
-            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_GENE_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_GENE_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
                 tmpl_vehicle(80, 360)
+            }
+
+            spriteset(set_graphic_LONGER_TONGIL_KNR_GREEN_GENE_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_TONGIL_CAR.png"){
+                tmpl_vehicle(80, 400)
             }
 
         // Switches
@@ -651,8 +660,12 @@
                 tmpl_vehicle(80, 40)
             }
 
-            spriteset(set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+            spriteset(set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR_A, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
                 tmpl_vehicle(80, 80)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR_B, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 120)
             }
 
         // Switches
@@ -665,8 +678,13 @@
                 sw_random_graphic_LONGER_MUGUNGHWA_MILDSTEAL_CAR;
             }
 
+            switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR, random_bits % 3) {  
+                1..2: set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR_A;
+                set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR_B;
+            }
+
             switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_MUGUNGHWA_MILDSTEAL_CAR, position_in_vehid_chain_from_end) {
-                1: set_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR;
+                1: sw_random_graphic_LONGER_MUGUNGHWA_MILDSTEAL_GENERATOR_CAR;
                 sw_graphic_front_LONGER_MUGUNGHWA_MILDSTEAL_CAR;
             }
 
@@ -674,6 +692,7 @@
                 1: sw_graphic_general_LONGER_MUGUNGHWA_MILDSTEAL_CAR;
                 set_vehicle_empty;
             }
+
 
             switch (FEAT_TRAINS, SELF, sw_capacity_front_LONGER_MUGUNGHWA_MILDSTEAL_CAR, num_vehs_in_vehid_chain / 3 ) {
                 72;
@@ -689,12 +708,13 @@
                 0;
             }
 
+
             switch (FEAT_TRAINS, SELF, sw_length_front_LONGER_MUGUNGHWA_MILDSTEAL_CAR, num_vehs_in_vehid_chain / 3 ) { // 나머지 전부 길이 8
                 8;
             }
 
             switch (FEAT_TRAINS, SELF, sw_length_general_LONGER_MUGUNGHWA_MILDSTEAL_CAR, position_in_vehid_chain_from_end) { // 끝에서 첫째 차량 발전차; 나머지는 다음으로 넘김
-                1: 6;
+                1: 4;
                 sw_length_front_LONGER_MUGUNGHWA_MILDSTEAL_CAR;
             }
 
@@ -756,19 +776,23 @@
     // MUGUNGHWA_RY_CAR
         // Graphics
             spriteset(set_LONGER_MUGUNGHWA_RY_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png") {
-                tmpl_purchase(0, 120)
+                tmpl_purchase(0, 160)
             }
 
             spriteset(set_graphic_LONGER_MUGUNGHWA_RY_PASSENGER_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
-                tmpl_vehicle(80, 120)
-            }
-
-            spriteset(set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_A, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
                 tmpl_vehicle(80, 160)
             }
 
-            spriteset(set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_B, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+            spriteset(set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_A, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
                 tmpl_vehicle(80, 200)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_B, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 240)
+            }
+
+            spriteset(set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_C, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
+                tmpl_vehicle(80, 280)
             }
 
         // Switches
@@ -776,9 +800,10 @@
                 set_graphic_LONGER_MUGUNGHWA_RY_PASSENGER_CAR;
             }
 
-            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR, random_bits % 2) {
+            switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR, random_bits % 6) {
                 1: set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_A;
-                set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_B;
+                2..5: set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_B;
+                set_graphic_LONGER_MUGUNGHWA_RY_GENERATOR_CAR_C;
             }
 
             switch (FEAT_TRAINS, SELF, sw_graphic_general_LONGER_MUGUNGHWA_RY_CAR, position_in_vehid_chain_from_end) {
@@ -809,8 +834,8 @@
                 8;
             }
 
-            switch (FEAT_TRAINS, SELF, sw_length_LONGER_MUGUNGHWA_RY_GENERATOR_CAR, random_bits % 2) {
-                1: 4;
+            switch (FEAT_TRAINS, SELF, sw_length_LONGER_MUGUNGHWA_RY_GENERATOR_CAR, random_bits % 6) {
+                1..5: 4;
                 6;
             }
 
@@ -878,19 +903,19 @@
     // MUGUNGHWA_RB_CAR
         // Graphics
             spriteset(set_LONGER_MUGUNGHWA_RB_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png") {
-                tmpl_purchase(0, 240)
+                tmpl_purchase(0, 320)
             }
 
             spriteset(set_graphic_LONGER_MUGUNGHWA_RB_PASSENGER_A_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
-                tmpl_vehicle(80, 240)
+                tmpl_vehicle(80, 320)
             }
 
             spriteset(set_graphic_LONGER_MUGUNGHWA_RB_PASSENGER_B_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
-                tmpl_vehicle(80, 280)
+                tmpl_vehicle(80, 360)
             }
 
             spriteset(set_graphic_LONGER_MUGUNGHWA_RB_GENERATOR_CAR, "./Korean_Longer_Train_Set/gfx/LONGER_MUGUNGHWA_CAR.png"){
-                tmpl_vehicle(80, 320)
+                tmpl_vehicle(80, 400)
             }
 
         // Switches
