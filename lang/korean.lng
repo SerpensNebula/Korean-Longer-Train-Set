@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME										:한국 길다란 열차 세트 0.4.1
+STR_GRF_NAME										:한국 길다란 열차 세트 0.4.2
 STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 

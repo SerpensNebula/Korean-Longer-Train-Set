@@ -1723,7 +1723,7 @@
                     property {
                         // Common properties
                         name:                           string(STR_NAME_LONGER_GONDOLA_CAR);
-                        climates_available:             NO_CLIMATES;
+                        climates_available:             NO_CLIMATE;
                         introduction_date:              date(1950, 1, 1);
                         track_type:                     RAIL;
                         sprite_id:                      SPRITE_ID_NEW_TRAIN;
@@ -1803,7 +1803,7 @@
                     property {
                         // Common properties
                         name:                           string(STR_NAME_LONGER_GONDOLA_CAR);
-                        climates_available:             NO_CLIMATES;
+                        climates_available:             NO_CLIMATE;
                         introduction_date:              date(1950, 1, 1);
                         track_type:                     RAIL;
                         sprite_id:                      SPRITE_ID_NEW_TRAIN;
@@ -1985,7 +1985,7 @@
                     property {
                         // Common properties
                         name:                           string(STR_NAME_LONGER_CONTAINER_FLAT_CAR);
-                        climates_available:             NO_CLIMATES;
+                        climates_available:             NO_CLIMATE;
                         introduction_date:              date(1950, 1, 1);
                         track_type:                     RAIL;
                         sprite_id:                      SPRITE_ID_NEW_TRAIN;
@@ -2038,7 +2038,7 @@
                     property {
                         // Common properties
                         name:                           string(STR_NAME_LONGER_CONTAINER_FLAT_CAR);
-                        climates_available:             NO_CLIMATES;
+                        climates_available:             NO_CLIMATE;
                         introduction_date:              date(1950, 1, 1);
                         track_type:                     RAIL;
                         sprite_id:                      SPRITE_ID_NEW_TRAIN;                        
