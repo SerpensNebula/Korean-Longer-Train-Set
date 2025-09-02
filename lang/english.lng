@@ -1,8 +1,8 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                        :Korean Long Train Set 0.4.0
-STR_GRF_DESC                                        :Korean Long Train Set adds some more longer vehicles of Korean Train Set. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
+STR_GRF_NAME                                        :Korean Longer Train Set 0.4.1
+STR_GRF_DESC                                        :Korean Longer Train Set adds some train vehicles longer than Korean Train Set. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
 # Parameters
@@ -40,6 +40,10 @@ STR_NAME_LONGER_BIDULGI_CAR                    		:Bidulgi Car
 STR_NAME_LONGER_TONGIL_CAR							:Tong-il Car
 STR_NAME_LONGER_MUGUNGHWA_CAR						:Mugunghwa Car
 STR_NAME_LONGER_SAEMAEUL_CAR						:Saemaeul Car
+
+# Cargo Wagons
+STR_NAME_LONGER_GONDOLA_CAR							:Gondola Car
+STR_NAME_LONGER_CONTAINER_FLAT_CAR					:Container Flat Car
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}Feature: {GOLD}Various cars {GREEN}(random refitting)

@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME										:한국 길다란 열차 세트 0.4.0
+STR_GRF_NAME										:한국 길다란 열차 세트 0.4.1
 STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
@@ -40,6 +40,10 @@ STR_NAME_LONGER_BIDULGI_CAR		                 	:비둘기호 객차
 STR_NAME_LONGER_TONGIL_CAR							:통일호 객차
 STR_NAME_LONGER_MUGUNGHWA_CAR						:무궁화호 객차
 STR_NAME_LONGER_SAEMAEUL_CAR						:새마을호 객차
+
+# Cargo Wagons
+STR_NAME_LONGER_GONDOLA_CAR							:무개화차
+STR_NAME_LONGER_CONTAINER_FLAT_CAR					:컨테이너 평판화차
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}특성: {GOLD}다9형 또는 일반형 객차 {GREEN}(랜덤 차량)
