@@ -3,7 +3,7 @@
         name                               :string(STR_GRF_NAME);
         desc                               :string(STR_GRF_DESC);
         url                                :string(STR_GRF_URL);
-        version                            :250531;
+        version                            :250902;
         min_compatible_version             :250204;
 
         // Parameters
@@ -50,14 +50,12 @@
         // Toys
             BATT, BUBL, COLA, CTCD, FZDR, PLST, SWET, TOFF, TOYS,
 
-        // FIRS 4.15.1~ https://grf.farm/firs/4.15.1/html/get_started.html
-            AORE, BDMT, BEAN, BEER, BOOM, CBLK, CLAY, CMNT, COPR, CSTI, CTAR, ENSP, FECR, FERT, FICR, FISH,
-            FMSP, FRVL, GRVL, JAVA, KAOL, MILK, PEAT, PETR, PHOS, PORE, POTA, RFPR, SAND, SCMT, SULP, TYRE,  
-            VEHI, WDPR, WOOL, ZINC, ACID, ALUM, CASS, CHLO, COAT, COKE, EOIL, IRON, LYE_, METL, MNO2, MNSP, 
-            NH3_, NUTS, NITR, NKOR, O2__, PIPE, POWR, QLME, RCYC, SALT, SASH, SGBT, SGCN, SLAG, SOAP, STAL,  
-            STCB, STSE, STSH, STST, STWR, VBOD, VENG, VPTS,
-        
-            PLAS, LIME
+        // FIRS 5.0.0-beta-3 https://grf.farm/firs/5.0.0-beta-3/html/code_reference.html
+            ACID, GRVL, BEER, ALUM, NH3_, BEAN, STBL, BDMT, CBLK, CASS, CSTI, CMNT, RFPR, KAOL, CHLO, CLAY,
+            SOAP, CTAR, JAVA, COKE, CCPR, COPR, EOIL, POWR, ENSP, BOOM, FMSP, FEAL, FERT, FISH, FOCA, GLAS,
+            HWAR, LIME, MNO2, STBR, MILK, NITR, N7__, NUTS, O2__, COAT, PEAT, PETR, PHOS, IRON, PPWK, POTA,
+            PUMP, PORE, QLME, RBAR, SALT, SAND, SCMT, SEAL, SLAG, SASH, LYE_, STIG, STPP, STSH, STSL, STTB,
+            STWR, STSE, SULP, WDPR, TYCO, TYRE, VBOD, VENG, VPTS, VEHI, WELD, WOOL, ZINC
     }
 
     railtypetable {
@@ -93,6 +91,11 @@
         [x,      y,     1,     1,     0,    0] // ↙
         [x,      y,     1,     1,     0,    0] // ←
         [x,      y,     1,     1,     0,    0] // ↖
+    }
+
+    switch (FEAT_TRAINS, SELF, sw_car_length_9, position_in_articulated_veh) {
+        1: 5;
+        2;
     }
 
     switch (FEAT_TRAINS, SELF, sw_car_length_12, position_in_articulated_veh) {
@@ -1664,6 +1667,420 @@
                 }
             }
 
+// Cargo Wagons
+    // Gondola Cars
+        // Gondola Car General
+            spriteset(set_LONGER_GONDOLA_1950_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png") {
+                tmpl_purchase(0, 0)
+            }
+
+            switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_GONDOLA_1950_CAR, position_in_articulated_veh) {
+                1: 40*(para_capacity);
+                0;
+            }
+
+            spriteset(set_graphic_LONGER_GONDOLA_1950_CAR_empty, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png"){
+                tmpl_vehicle(80, 0)
+            }
+
+        // GONDOLA_1950_CAR_COAL
+            // Graphics
+                spriteset(set_graphic_LONGER_GONDOLA_1950_CAR_COAL_harf, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png"){
+                    tmpl_vehicle(80, 40)
+                }
+
+                spriteset(set_graphic_LONGER_GONDOLA_1950_CAR_COAL_full, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png"){
+                    tmpl_vehicle(80, 80)
+                }
+
+                spritegroup sg_graphic_LONGER_GONDOLA_1950_CAR_COAL {
+                        loading: [
+                            set_graphic_LONGER_GONDOLA_1950_CAR_empty,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_COAL_harf,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_COAL_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_GONDOLA_1950_CAR_empty,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_COAL_harf,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_COAL_full
+                        ];
+                    } 
+
+            // Switches
+                switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_GONDOLA_1950_CAR_COAL, position_in_articulated_veh) {
+                    1: sg_graphic_LONGER_GONDOLA_1950_CAR_COAL;
+                    set_vehicle_empty;
+                }
+
+                switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_GONDOLA_1950_CAR_COAL, extra_callback_info1) {
+                    1..2: return ko_LONGER_GONDOLA_1950_CAR_COAL; //use same vehicle for all parts
+                    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+                }
+
+            // General
+                item(FEAT_TRAINS, ko_LONGER_GONDOLA_1950_CAR_COAL, 6350) {
+                    property {
+                        // Common properties
+                        name:                           string(STR_NAME_LONGER_GONDOLA_CAR);
+                        climates_available:             NO_CLIMATES;
+                        introduction_date:              date(1950, 1, 1);
+                        track_type:                     RAIL;
+                        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    
+                        // Spec
+                        speed:                          120 km/h;
+                        weight:                         19 ton;
+    
+                        // Model
+                        model_life:                     VEHICLE_NEVER_EXPIRES;
+                        vehicle_life:                   30;
+                        retire_early:                   0;
+                        reliability_decay:              0;
+    
+                        // Cargo
+                        cargo_capacity:                 40/3*(para_capacity);
+                        cargo_allow_refit:              [COAL];
+                        loading_speed:                  5;
+    
+                        // Costs
+                        cost_factor:                    80;
+                        running_cost_base:              RUNNING_COST_NONE;
+                        //running_cost_factor:          64;
+    
+                        // Flags
+                        ai_special_flag:                AI_FLAG_CARGO;
+                        bitmask_vehicle_info:           0;
+                    }
+
+                    graphics {
+                        default:                        sw_graphic_LONGER_GONDOLA_1950_CAR_COAL;
+                        articulated_part:               sw_articulated_LONGER_GONDOLA_1950_CAR_COAL;
+                        length:                         sw_car_length_9;
+                        cargo_capacity:                 sw_capacity_LONGER_GONDOLA_1950_CAR;
+                        purchase:                       set_LONGER_GONDOLA_1950_CAR_purchase;
+                        purchase_cargo_capacity:        set_LONGER_GONDOLA_1950_CAR_purchase;
+                    }
+                }
+
+        // GONDOLA_1950_CAR_GRAI
+            // Graphics
+                spriteset(set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_harf, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png"){
+                    tmpl_vehicle(80, 120)
+                }
+
+                spriteset(set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_full, "./Korean_Longer_Train_Set/gfx/LONGER_GONDOLA_1950.png"){
+                    tmpl_vehicle(80, 160)
+                }
+
+                spritegroup sg_graphic_LONGER_GONDOLA_1950_CAR_GRAI {
+                        loading: [
+                            set_graphic_LONGER_GONDOLA_1950_CAR_empty,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_harf,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_GONDOLA_1950_CAR_empty,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_harf,
+                            set_graphic_LONGER_GONDOLA_1950_CAR_GRAI_full
+                        ];
+                    } 
+
+            // Switches
+                switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_GONDOLA_1950_CAR_GRAI, position_in_articulated_veh) {
+                    1: sg_graphic_LONGER_GONDOLA_1950_CAR_GRAI;
+                    set_vehicle_empty;
+                }
+
+                switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_GONDOLA_1950_CAR_GRAI, extra_callback_info1) {
+                    1..2: return ko_LONGER_GONDOLA_1950_CAR_GRAI; //use same vehicle for all parts
+                    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+                }
+
+            // General
+                item(FEAT_TRAINS, ko_LONGER_GONDOLA_1950_CAR_GRAI, 6351) {
+                    property {
+                        // Common properties
+                        name:                           string(STR_NAME_LONGER_GONDOLA_CAR);
+                        climates_available:             NO_CLIMATES;
+                        introduction_date:              date(1950, 1, 1);
+                        track_type:                     RAIL;
+                        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+                        variant_group:                  ko_LONGER_GONDOLA_1950_CAR_COAL;
+    
+                        // Spec
+                        speed:                          120 km/h;
+                        weight:                         19 ton;
+    
+                        // Model
+                        model_life:                     VEHICLE_NEVER_EXPIRES;
+                        vehicle_life:                   30;
+                        retire_early:                   0;
+                        reliability_decay:              0;
+    
+                        // Cargo
+                        cargo_capacity:                 40/3*(para_capacity);
+                        cargo_allow_refit:              [GRAI];
+                        loading_speed:                  5;
+    
+                        // Costs
+                        cost_factor:                    80;
+                        running_cost_base:              RUNNING_COST_NONE;
+                        //running_cost_factor:          64;
+    
+                        // Flags
+                        ai_special_flag:                AI_FLAG_CARGO;
+                        extra_flags:                    bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+                        bitmask_vehicle_info:           0;
+                    }
+
+                    graphics {
+                        default:                        sw_graphic_LONGER_GONDOLA_1950_CAR_GRAI;
+                        articulated_part:               sw_articulated_LONGER_GONDOLA_1950_CAR_GRAI;
+                        length:                         sw_car_length_9;
+                        cargo_capacity:                 sw_capacity_LONGER_GONDOLA_1950_CAR;
+                        purchase:                       set_LONGER_GONDOLA_1950_CAR_purchase;
+                        purchase_cargo_capacity:        set_LONGER_GONDOLA_1950_CAR_purchase;
+                    }
+                }
+
+    // Flat Cars
+        // Flat Car General
+            // General 
+                spriteset(set_LONGER_CONTAINER_FLAT_1950_CAR_purchase, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png") {
+                    tmpl_purchase(0, 0)
+                }
+
+                switch (FEAT_TRAINS, SELF, sw_capacity_LONGER_CONTAINER_FLAT_1950_CAR, position_in_articulated_veh) {
+                    1: 50*(para_capacity);
+                    0;
+                }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 0)
+                }
+
+            // Graphics
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_A_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 40)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_A {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_A_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_A_full
+                        ];
+                    }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_B_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 80)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_B {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_B_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_B_full
+                        ];
+                    }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_C_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 120)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_C {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_C_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_C_full
+                        ];
+                    }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_D_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 160)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_D {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_D_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_D_full
+                        ];
+                    }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_E_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 200)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_E {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_E_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_E_full
+                        ];
+                    }
+
+                spriteset(set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_F_full, "./Korean_Longer_Train_Set/gfx/LONGER_CONTAINER_FLAT_1950.png"){
+                    tmpl_vehicle(80, 240)
+                }
+
+                spritegroup sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_F {
+                        loading: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_F_full
+                        ];
+
+                        loaded: [
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_empty,
+                            set_graphic_LONGER_CONTAINER_FLAT_1950_CAR_F_full
+                        ];
+                    }
+
+            // Switches
+                switch(FEAT_TRAINS, SELF, sw_random_graphic_LONGER_CONTAINER_FLAT_1950_CAR, random_bits % 6) {  
+                    1: sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_A;
+                    2: sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_B;
+                    3: sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_C;
+                    4: sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_D;
+                    5: sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_E;
+                    sg_graphic_LONGER_CONTAINER_FLAT_1950_CAR_F;
+                }
+
+                switch (FEAT_TRAINS, SELF, sw_graphic_LONGER_CONTAINER_FLAT_1950_CAR, position_in_articulated_veh) {
+                    1: sw_random_graphic_LONGER_CONTAINER_FLAT_1950_CAR;
+                    set_vehicle_empty;
+                }
+
+        // CONTATINER_FLAT_1950_CAR_GOOD
+            // Switch
+                switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_CONTAINER_FLAT_1950_CAR_GOOD, extra_callback_info1) {
+                    1..2: return ko_LONGER_CONTAINER_FLAT_1950_CAR_GOOD; //use same vehicle for all parts
+                    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+                }
+
+            // General
+                item(FEAT_TRAINS, ko_LONGER_CONTAINER_FLAT_1950_CAR_GOOD, 6300) {
+                    property {
+                        // Common properties
+                        name:                           string(STR_NAME_LONGER_CONTAINER_FLAT_CAR);
+                        climates_available:             NO_CLIMATES;
+                        introduction_date:              date(1950, 1, 1);
+                        track_type:                     RAIL;
+                        sprite_id:                      SPRITE_ID_NEW_TRAIN;
+    
+                        // Spec
+                        speed:                          120 km/h;
+                        weight:                         19 ton;
+    
+                        // Model
+                        model_life:                     VEHICLE_NEVER_EXPIRES;
+                        vehicle_life:                   30;
+                        retire_early:                   0;
+                        reliability_decay:              0;
+    
+                        // Cargo
+                        cargo_capacity:                 50/3*(para_capacity);
+                        cargo_allow_refit:              [GOOD];
+                        loading_speed:                  5;
+    
+                        // Costs
+                        cost_factor:                    80;
+                        running_cost_base:              RUNNING_COST_NONE;
+                        //running_cost_factor:          64;
+    
+                        // Flags
+                        ai_special_flag:                AI_FLAG_CARGO;
+                        bitmask_vehicle_info:           0;
+                    }
+
+                    graphics {
+                        default:                        sw_graphic_LONGER_CONTAINER_FLAT_1950_CAR;
+                        articulated_part:               sw_articulated_LONGER_CONTAINER_FLAT_1950_CAR_GOOD;
+                        length:                         sw_car_length_9;
+                        cargo_capacity:                 sw_capacity_LONGER_CONTAINER_FLAT_1950_CAR;
+                        purchase:                       set_LONGER_CONTAINER_FLAT_1950_CAR_purchase;
+                        purchase_cargo_capacity:        set_LONGER_CONTAINER_FLAT_1950_CAR_purchase;
+                        colour_mapping:                 775;
+                    }
+                }
+
+        // CONTATINER_FLAT_1950_CAR_FOOD
+            // Switch
+                switch (FEAT_TRAINS, SELF, sw_articulated_LONGER_CONTAINER_FLAT_1950_CAR_FOOD, extra_callback_info1) {
+                    1..2: return ko_LONGER_CONTAINER_FLAT_1950_CAR_FOOD; //use same vehicle for all parts
+                    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+                }
+
+            // General
+                item(FEAT_TRAINS, ko_LONGER_CONTAINER_FLAT_1950_CAR_FOOD, 6301) {
+                    property {
+                        // Common properties
+                        name:                           string(STR_NAME_LONGER_CONTAINER_FLAT_CAR);
+                        climates_available:             NO_CLIMATES;
+                        introduction_date:              date(1950, 1, 1);
+                        track_type:                     RAIL;
+                        sprite_id:                      SPRITE_ID_NEW_TRAIN;                        
+                        variant_group:                  ko_LONGER_CONTAINER_FLAT_1950_CAR_GOOD;
+    
+                        // Spec
+                        speed:                          120 km/h;
+                        weight:                         19 ton;
+    
+                        // Model
+                        model_life:                     VEHICLE_NEVER_EXPIRES;
+                        vehicle_life:                   30;
+                        retire_early:                   0;
+                        reliability_decay:              0;
+    
+                        // Cargo
+                        cargo_capacity:                 50/3*(para_capacity);
+                        cargo_allow_refit:              [FOOD];
+                        loading_speed:                  5;
+    
+                        // Costs
+                        cost_factor:                    80;
+                        running_cost_base:              RUNNING_COST_NONE;
+                        //running_cost_factor:          64;
+    
+                        // Flags
+                        ai_special_flag:                AI_FLAG_CARGO;
+                        extra_flags:                    bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+                        bitmask_vehicle_info:           0;
+                    }
+
+                    graphics {
+                        default:                        sw_graphic_LONGER_CONTAINER_FLAT_1950_CAR;
+                        articulated_part:               sw_articulated_LONGER_CONTAINER_FLAT_1950_CAR_FOOD;
+                        length:                         sw_car_length_9;
+                        cargo_capacity:                 sw_capacity_LONGER_CONTAINER_FLAT_1950_CAR;
+                        purchase:                       set_LONGER_CONTAINER_FLAT_1950_CAR_purchase;
+                        purchase_cargo_capacity:        set_LONGER_CONTAINER_FLAT_1950_CAR_purchase;
+                        colour_mapping:                 775;
+                    }
+                }
+
 // Locomotives
     // LONGER_PASHI5
         // Graphics
@@ -2395,7 +2812,7 @@
                     name:                           string(STR_NAME_LONGER_K8X00);
                     climates_available:             ALL_CLIMATES;
                     introduction_date:              date(1998, 1, 1);
-                    track_type:                     RAIL;
+                    track_type:                     ELRL;
                     engine_class:                   ENGINE_CLASS_ELECTRIC;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     dual_headed:                    0;
@@ -2466,7 +2883,7 @@
                     name:                           string(STR_NAME_LONGER_K8X00);
                     climates_available:             ALL_CLIMATES;
                     introduction_date:              date(2003, 1, 1);
-                    track_type:                     RAIL;
+                    track_type:                     ELRL;
                     engine_class:                   ENGINE_CLASS_ELECTRIC;
                     sprite_id:                      SPRITE_ID_NEW_TRAIN;
                     dual_headed:                    0;
@@ -2606,6 +3023,7 @@
                     cargo_capacity:                 sw_capacity_LONGER_NURIRO_2009;
                     purchase:                       set_LONGER_NURIRO_2009_purchase;
                     purchase_cargo_capacity:        set_LONGER_NURIRO_2009_purchase;
+                    colour_mapping:                 775;
 
                     additional_text:                string(STR_ADDI_FIXED_4);
                 }
@@ -2708,6 +3126,7 @@
                     cargo_capacity:                 sw_capacity_LONGER_NURIRO_2022;
                     purchase:                       set_LONGER_NURIRO_2022_purchase;
                     purchase_cargo_capacity:        set_LONGER_NURIRO_2022_purchase;
+                    colour_mapping:                 775;
 
                     additional_text:                string(STR_ADDI_NURIRO_2022);
                 }
@@ -3990,13 +4409,13 @@
 
         ko_LONGER_SEOUL_LINE01_RHEO_FIRST_TUNNEL,                           // 6240
 
-        // ko_LONGER_CONTAINER_FLAT_CAR,                                       // 6300
-        // ko_LONGER_GONDOLA_CAR,                                              // 6350
+        ko_LONGER_CONTAINER_FLAT_1950_CAR_GOOD,                             // 6300
+        ko_LONGER_CONTAINER_FLAT_1950_CAR_FOOD,                             // 6301
+        ko_LONGER_GONDOLA_1950_CAR_COAL,                                    // 6350
+        ko_LONGER_GONDOLA_1950_CAR_GRAI,                                    // 6351
         // ko_LONGER_BOX_CAR,                                                  // 6400
         // ko_LONGER_BAGGAGE_CAR,                                              // 6450
         // ko_LONGER_TANK_CAR,                                                 // 6500
         // ko_LONGER_STAKE_CAR,                                                // 6550
         // ko_LONGER_MAIL_CAR,                                                 // 6600
     ]);
-
-    // 더미데이터: 파시5형 증기기관차, 서울지하철 1호선 초저항 (아직 공개하기에 알맞지 않음)
