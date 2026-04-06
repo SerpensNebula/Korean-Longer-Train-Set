@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                        :Korean Longer Train Set 0.4.2
+STR_GRF_NAME                                        :Korean Longer Train Set 0.5.0
 STR_GRF_DESC                                        :Korean Longer Train Set adds some train vehicles longer than Korean train NewGRFs. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
@@ -24,7 +24,9 @@ STR_NAME_LONGER_KTX1							    :KTX-1
 STR_NAME_LONGER_KTX2								:KTX-Sancheon
 STR_NAME_LONGER_KTX_EUM								:KTX-EUM
 STR_NAME_LONGER_KTX_CHEONGRYONG						:KTX-CHEONGRYONG
-STR_NAME_LONGER_HEMU430X							:HEMU-430X
+STR_NAME_LONGER_SRT_CHEONGRYONG						:SRT-CHEONGRYONG (temp)
+STR_NAME_LONGER_HEMU_430X							:HEMU-430X
+STR_NAME_LONGER_EMU_370                             :EMU-370 (temp)
 
 # Metro
 STR_NAME_LONGER_SEOUL_LINE01						:Seoul Metro Line 1
@@ -44,6 +46,9 @@ STR_NAME_LONGER_SAEMAEUL_CAR						:Saemaeul Car
 # Cargo Wagons
 STR_NAME_LONGER_GONDOLA_CAR							:Gondola Car
 STR_NAME_LONGER_CONTAINER_FLAT_CAR					:Container Flat Car
+STR_NAME_LONGER_TANK_1950_CAR                       :Tank Car
+STR_NAME_LONGER_COIL_STAKE_CAR                      :Stake Car
+STR_NAME_LONGER_STAKE_CAR                           :Stake Car
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}Feature: {GOLD}Various cars {GREEN}(random refitting)
@@ -70,6 +75,7 @@ STR_ADDI_KNR 										:{BLACK}Appearance: {GREEN}"KNR" Livery
 STR_ADDI_KORAIL										:{BLACK}Appearance: {BLUE}Korail Livery
 
 STR_ADDI_NURIRO_2022								:{BLACK}Feature: {GOLD}4 cars {}{BLACK}Appearance: {GOLD}2022 Livery
+STR_ADDI_LONGER_KTX_CHEONGRYONG_2025                :{BLACK}Feature: {GOLD}8 cars {}{BLACK}Appearance: {BLUE}2025 Livery
 
 STR_ADDI_LONGER_SEOUL_LINE01_RHEO_FIRST_TUNNEL		:{BLACK}Feature: {GOLD}6 cars, {GREEN}Commuter train {BLACK}- {GOLD}faster loading {}{BLACK}Appearance: {BLUE}"Tunnel" Livery
 
@@ -77,4 +83,5 @@ STR_ADDI_FIXED_4									:{BLACK}Feature: {GOLD}4 cars
 STR_ADDI_FIXED_6									:{BLACK}Feature: {GOLD}6 cars
 STR_ADDI_FIXED_8									:{BLACK}Feature: {GOLD}8 cars
 STR_ADDI_FIXED_10									:{BLACK}Feature: {GOLD}10 cars
+STR_ADDI_FIXED_16									:{BLACK}Feature: {GOLD}16 cars
 STR_ADDI_FIXED_20									:{BLACK}Feature: {GOLD}20 cars

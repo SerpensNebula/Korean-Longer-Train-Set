@@ -1,7 +1,7 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME										:한국 길다란 열차 세트 0.4.2
+STR_GRF_NAME										:한국 길다란 열차 세트 0.5.0
 STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
@@ -24,7 +24,9 @@ STR_NAME_LONGER_KTX1							    :KTX-1
 STR_NAME_LONGER_KTX2								:KTX-산천
 STR_NAME_LONGER_KTX_EUM								:KTX-이음
 STR_NAME_LONGER_KTX_CHEONGRYONG						:KTX-청룡
-STR_NAME_LONGER_HEMU430X							:HEMU-430X
+STR_NAME_LONGER_SRT_CHEONGRYONG						:SRT 차세대 (임시명칭)
+STR_NAME_LONGER_HEMU_430X							:HEMU-430X
+STR_NAME_LONGER_EMU_370                             :EMU-370 (임시)
 
 # Metro
 STR_NAME_LONGER_SEOUL_LINE01						:서울 지하철 1호선
@@ -44,6 +46,9 @@ STR_NAME_LONGER_SAEMAEUL_CAR						:새마을호 객차
 # Cargo Wagons
 STR_NAME_LONGER_GONDOLA_CAR							:무개화차
 STR_NAME_LONGER_CONTAINER_FLAT_CAR					:컨테이너 평판화차
+STR_NAME_LONGER_TANK_1950_CAR                       :유조화차
+STR_NAME_LONGER_COIL_STAKE_CAR                      :철판코일화차
+STR_NAME_LONGER_STAKE_CAR                           :평판화차
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}특성: {GOLD}다9형 또는 일반형 객차 {GREEN}(랜덤 차량)
@@ -70,6 +75,7 @@ STR_ADDI_KNR 										:{BLACK}도색: {GREEN}"철도청" 도색
 STR_ADDI_KORAIL										:{BLACK}도색: {BLUE}코레일 도색
 
 STR_ADDI_NURIRO_2022								:{BLACK}특성: {GOLD}4량 고정편성 {}{BLACK}도색: {GOLD}2022년 도색
+STR_ADDI_LONGER_KTX_CHEONGRYONG_2025                :{BLACK}특성: {GOLD}8량 고정편성 {}{BLACK}도색: {BLUE}2025년 도색
 
 STR_ADDI_LONGER_SEOUL_LINE01_RHEO_FIRST_TUNNEL		:{BLACK}특성: {GOLD}6량 고정편성, {GREEN}통근열차 {BLACK}- {GOLD}빠른 승하차 {}{BLACK}도색: {BLUE}"터널" 도색
 
@@ -77,4 +83,5 @@ STR_ADDI_FIXED_4									:{BLACK}특성: {GOLD}4량 고정편성
 STR_ADDI_FIXED_6									:{BLACK}특성: {GOLD}6량 고정편성
 STR_ADDI_FIXED_8									:{BLACK}특성: {GOLD}8량 고정편성
 STR_ADDI_FIXED_10									:{BLACK}특성: {GOLD}10량 고정편성
+STR_ADDI_FIXED_16									:{BLACK}특성: {GOLD}16량 고정편성
 STR_ADDI_FIXED_20									:{BLACK}특성: {GOLD}20량 고정편성
