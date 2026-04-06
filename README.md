@@ -6,4 +6,4 @@ This is main page of Korean Longer Train Set, a NewGRF of OpenTTD.
 
 ![일러스트2](https://github.com/user-attachments/assets/6a1e6975-3419-4db3-9d38-eb77536a2c51)
 
-![일러스트3](https://github.com/user-attachments/assets/1a847ef6-c889-4b66-a957-d5959b546dc6)
+<img width="1674" height="1500" alt="449538075-1a847ef6-c889-4b66-a957-d5959b546dc6" src="https://github.com/user-attachments/assets/00973c25-a476-4e35-bff4-aaed62dc2155" />
