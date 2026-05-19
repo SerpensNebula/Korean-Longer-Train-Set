@@ -1,7 +1,7 @@
 ##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME                                        :Korean Longer Train Set 0.5.0
+STR_GRF_NAME                                        :Korean Longer Train Set 1.0.0
 STR_GRF_DESC                                        :Korean Longer Train Set adds some train vehicles longer than Korean train NewGRFs. It's experimental NewGRF. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
@@ -11,10 +11,14 @@ STR_PARA_DESC_SPEED_POWER                           :Set max speed of all trains
 STR_PARA_SPEED_POWER_OPT_1                          :x1 (default)
 STR_PARA_SPEED_POWER_OPT_1_5                        :x1.5
 STR_PARA_SPEED_POWER_OPT_2                          :x2
-STR_PARA_NAME_CAPA				                    :Max frieght or pass. capacity multiplier
-STR_PARA_DESC_CAPA				                    :Set max capacity of all trains. {RED}Warning! {WHITE}This setting will be applied from newly created or serviced trains.
-STR_PARA_CAPA_OPT_1			                        :x1 (default)
-STR_PARA_CAPA_OPT_2			                        :x2
+STR_PARA_NAME_PASS_CAPA			                    :Max passanger. capacity multiplier
+STR_PARA_DESC_PASS_CAPA			                    :Set max passanger capacity of all trains. {RED}Warning! {WHITE}This setting will be applied from newly created or serviced trains.
+STR_PARA_PASS_CAPA_OPT_1	                        :x1 (default)
+STR_PARA_PASS_CAPA_OPT_2	                        :x2
+STR_PARA_NAME_CARGO_CAPA                            :Max freight capacity multiplier
+STR_PARA_DESC_CARGO_CAPA                            :Set max freight capacity of all trains. {RED}Warning! {WHITE}This setting will be applied from newly created or serviced trains.
+STR_PARA_CARGO_CAPA_OPT_1                           :X1 (default)
+STR_PARA_CARGO_CAPA_OPT_2                           :X2
 
 # Multiple Units
 STR_NAME_LONGER_NURIRO								:Nuriro
@@ -35,20 +39,28 @@ STR_NAME_LONGER_SEOUL_LINE01						:Seoul Metro Line 1
 STR_NAME_LONGER_PASHI5								:Pashi 5 Steam Locomotive
 STR_NAME_LONGER_K7000								:7000 Diesel Locomotive
 STR_NAME_LONGER_K7X00								:7x00 Diesel Locomotive
+STR_NAME_LONGER_K7600                               :7600 Diesel Locomotive
+STR_NAME_LONGER_K8000                               :8000 Electric Locomotive
 STR_NAME_LONGER_K8X00								:8x00 Electric Locomotive
+STR_NAME_LONGER_K8500                               :8500 Electric Locomotive
 
 # Passenger Wagons
 STR_NAME_LONGER_BIDULGI_CAR                    		:Bidulgi Car
 STR_NAME_LONGER_TONGIL_CAR							:Tong-il Car
 STR_NAME_LONGER_MUGUNGHWA_CAR						:Mugunghwa Car
 STR_NAME_LONGER_SAEMAEUL_CAR						:Saemaeul Car
+STR_NAME_LONGER_MAIL_CAR                            :Mail Car
 
 # Cargo Wagons
+STR_NAME_LONGER_BAGGAGE_CAR                         :Baggage Car
 STR_NAME_LONGER_GONDOLA_CAR							:Gondola Car
 STR_NAME_LONGER_CONTAINER_FLAT_CAR					:Container Flat Car
 STR_NAME_LONGER_TANK_1950_CAR                       :Tank Car
-STR_NAME_LONGER_COIL_STAKE_CAR                      :Stake Car
+STR_NAME_LONGER_COIL_STAKE_CAR                      :Coil Stake Car
 STR_NAME_LONGER_STAKE_CAR                           :Stake Car
+STR_NAME_LONGER_VEHICLE_STAKE_CAR                   :Vehicle Stake Car
+STR_NAME_LONGER_BOX_1950_CAR                        :Box Car
+STR_NAME_LONGER_BOX_2003_CAR                        :Box Car
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}Feature: {GOLD}Various cars {GREEN}(random refitting)
@@ -70,14 +82,20 @@ STR_ADDI_LONGER_SAEMAEUL_DHC_RB						:{BLACK}Feature: {GOLD}8 cars
 
 STR_ADDI_GWANGWANGHO								:{BLACK}Appearance: {WHITE}"Milk" Livery {BLUE}(Gwangwangho)
 STR_ADDI_MILK										:{BLACK}Appearance: {WHITE}"Milk" Livery
-STR_ADDI_TIGER										:{BLACK}Appearance: {GOLD}"Tiger" Livery
+STR_ADDI_TIGER										:{BLACK}Appearance: {ORANGE}"Tiger" Livery
 STR_ADDI_KNR 										:{BLACK}Appearance: {GREEN}"KNR" Livery
 STR_ADDI_KORAIL										:{BLACK}Appearance: {BLUE}Korail Livery
+STR_ADDI_FREIGHT                                    :{BLACK}Appearance: {ORANGE}"Freight" Livery
 
 STR_ADDI_NURIRO_2022								:{BLACK}Feature: {GOLD}4 cars {}{BLACK}Appearance: {GOLD}2022 Livery
 STR_ADDI_LONGER_KTX_CHEONGRYONG_2025                :{BLACK}Feature: {GOLD}8 cars {}{BLACK}Appearance: {BLUE}2025 Livery
 
 STR_ADDI_LONGER_SEOUL_LINE01_RHEO_FIRST_TUNNEL		:{BLACK}Feature: {GOLD}6 cars, {GREEN}Commuter train {BLACK}- {GOLD}faster loading {}{BLACK}Appearance: {BLUE}"Tunnel" Livery
+
+STR_ADDITIONAL_LONGER_MAIL_CAR_2018                 :{BLACK}Feature: {ORANGE} Korea Post Express Livery
+STR_ADDITIONAL_LONGER_BAGGAGE_CAR_2024              :{BLACK}Feature: {BLUE}Logistic {RED}Train Livery
+
+STR_ADDI_LONGER_BOX_1950_CAR                        :{BLACK}Feature: {GOLD}2 kind of cars {GREEN}(random refitting)
 
 STR_ADDI_FIXED_4									:{BLACK}Feature: {GOLD}4 cars
 STR_ADDI_FIXED_6									:{BLACK}Feature: {GOLD}6 cars

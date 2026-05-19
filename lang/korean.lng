@@ -1,20 +1,24 @@
 ##grflangid 0x3A
 
 # GRF name and description
-STR_GRF_NAME										:한국 길다란 열차 세트 0.5.0
+STR_GRF_NAME										:한국 길다란 열차 세트 1.0.0
 STR_GRF_DESC                                        :이 NewGRF는 기존 한국열차를 다루는 NewGRF들보다 긴 그래픽을 사용합니다. 개인 실험용 NewGRF이므로, 개인적으로 좋아하는 차량만 만들 계획입니다. {}{}{BLACK}라이센스: {SILVER}GNU GPL v3
 STR_GRF_URL											:https://github.com/SerpensNebula/Korean-Longer-Train-Set
 
 # Parameters
 STR_PARA_NAME_SPEED_POWER		                    :최고속력과 출력 계수
-STR_PARA_DESC_SPEED_POWER		                    :모든 열차의 최고속력을 설정합니다. 일부 차량은 출력도 변경됩니다. 
+STR_PARA_DESC_SPEED_POWER		                    :모든 차량의 최고속력을 설정합니다. 일부 차량은 출력도 변경됩니다.
 STR_PARA_SPEED_POWER_OPT_1                          :x1 (기본값)
 STR_PARA_SPEED_POWER_OPT_1_5                        :x1.5
 STR_PARA_SPEED_POWER_OPT_2                          :x2
-STR_PARA_NAME_CAPA				                    :수송량 계수
-STR_PARA_DESC_CAPA				                    :모든 열차의 승객/화물 수송량을 설정합니다. {RED}주의! {WHITE}이 설정은 차량기지에서 점검받거나 새로 만드는 차량만 적용됩니다.
-STR_PARA_CAPA_OPT_1			                        :x1 (기본값)
-STR_PARA_CAPA_OPT_2			                        :x2
+STR_PARA_NAME_PASS_CAPA    		                    :승객 수송량 계수
+STR_PARA_DESC_PASS_CAPA			                    :모든 열차의 승객 수송량을 설정합니다. {RED}주의! {WHITE}이 설정은 차량기지에서 점검받거나 새로 만드는 차량만 적용됩니다.
+STR_PARA_PASS_CAPA_OPT_1	                        :x1 (기본값)
+STR_PARA_PASS_CAPA_OPT_2	                        :x2
+STR_PARA_NAME_CARGO_CAPA                            :화물 수송량 계수
+STR_PARA_DESC_CARGO_CAPA                            :모든 열차의 화물 수송량을 설정합니다. {RED}주의! {WHITE}이 설정은 차량기지에서 점검받거나 새로 만드는 차량만 적용됩니다.
+STR_PARA_CARGO_CAPA_OPT_1                           :X1 (기본값)
+STR_PARA_CARGO_CAPA_OPT_2                           :X2
 
 # Multiple Units
 STR_NAME_LONGER_NURIRO								:누리로
@@ -32,23 +36,31 @@ STR_NAME_LONGER_EMU_370                             :EMU-370 (임시)
 STR_NAME_LONGER_SEOUL_LINE01						:서울 지하철 1호선
 
 # Engines
+STR_NAME_LONGER_PASHI5								:파시 5형 증기기관차
 STR_NAME_LONGER_K7000								:7000호대 디젤기관차
 STR_NAME_LONGER_K7X00								:7x00호대 디젤기관차
+STR_NAME_LONGER_K7600                               :7600호대 디젤기관차
+STR_NAME_LONGER_K8000                               :8000호대 전기기관차
 STR_NAME_LONGER_K8X00								:8x00호대 전기기관차
-STR_NAME_LONGER_PASHI5								:파시 5형 증기기관차
+STR_NAME_LONGER_K8500                               :8500호대 전기기관차
 
 # Passenger Wagons
 STR_NAME_LONGER_BIDULGI_CAR		                 	:비둘기호 객차
 STR_NAME_LONGER_TONGIL_CAR							:통일호 객차
 STR_NAME_LONGER_MUGUNGHWA_CAR						:무궁화호 객차
 STR_NAME_LONGER_SAEMAEUL_CAR						:새마을호 객차
+STR_NAME_LONGER_MAIL_CAR                            :우편차
 
 # Cargo Wagons
+STR_NAME_LONGER_BAGGAGE_CAR                         :소화물차
 STR_NAME_LONGER_GONDOLA_CAR							:무개화차
 STR_NAME_LONGER_CONTAINER_FLAT_CAR					:컨테이너 평판화차
 STR_NAME_LONGER_TANK_1950_CAR                       :유조화차
-STR_NAME_LONGER_COIL_STAKE_CAR                      :철판코일화차
+STR_NAME_LONGER_COIL_STAKE_CAR                      :철판코일 화차
 STR_NAME_LONGER_STAKE_CAR                           :평판화차
+STR_NAME_LONGER_VEHICLE_STAKE_CAR                   :자동차 화차
+STR_NAME_LONGER_BOX_1950_CAR                        :유개화차
+STR_NAME_LONGER_BOX_2003_CAR                        :전개형 유개화차
 
 # Additional Texts
 STR_ADDITIONAL_LONGER_BIDULGI_MILDSTEAL_CAR			:{BLACK}특성: {GOLD}다9형 또는 일반형 객차 {GREEN}(랜덤 차량)
@@ -70,14 +82,20 @@ STR_ADDI_LONGER_SAEMAEUL_DHC_RB						:{BLACK}특성: {BLUE}코레일 도색 {}{G
 
 STR_ADDI_GWANGWANGHO								:{BLACK}도색: {WHITE}"우유" 도색 {BLUE}(관광호)
 STR_ADDI_MILK										:{BLACK}도색: {WHITE}"우유" 도색
-STR_ADDI_TIGER										:{BLACK}도색: {GOLD}"호랑이" 도색
+STR_ADDI_TIGER										:{BLACK}도색: {ORANGE}"호랑이" 도색
 STR_ADDI_KNR 										:{BLACK}도색: {GREEN}"철도청" 도색
 STR_ADDI_KORAIL										:{BLACK}도색: {BLUE}코레일 도색
+STR_ADDI_FREIGHT                                    :{BLACK}도색: {ORANGE}"화물" 도색
 
 STR_ADDI_NURIRO_2022								:{BLACK}특성: {GOLD}4량 고정편성 {}{BLACK}도색: {GOLD}2022년 도색
 STR_ADDI_LONGER_KTX_CHEONGRYONG_2025                :{BLACK}특성: {GOLD}8량 고정편성 {}{BLACK}도색: {BLUE}2025년 도색
 
 STR_ADDI_LONGER_SEOUL_LINE01_RHEO_FIRST_TUNNEL		:{BLACK}특성: {GOLD}6량 고정편성, {GREEN}통근열차 {BLACK}- {GOLD}빠른 승하차 {}{BLACK}도색: {BLUE}"터널" 도색
+
+STR_ADDITIONAL_LONGER_MAIL_CAR_2018                 :{BLACK}도색: {ORANGE}우체국 당일특급 도색
+STR_ADDITIONAL_LONGER_BAGGAGE_CAR_2024              :{BLACK}도색: {BLUE}생활물류 {RED}트레인 도색
+
+STR_ADDI_LONGER_BOX_1950_CAR                        :{BLACK}특성: {GOLD}두 종류의 화차 {GREEN}(랜덤 차량)
 
 STR_ADDI_FIXED_4									:{BLACK}특성: {GOLD}4량 고정편성
 STR_ADDI_FIXED_6									:{BLACK}특성: {GOLD}6량 고정편성
