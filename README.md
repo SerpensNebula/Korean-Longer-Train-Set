@@ -1,9 +1,7 @@
-# Korean-Longer-Train-Set 0.5.0
+# Korean-Longer-Train-Set 1.0.0
 
 This is main page of Korean Longer Train Set, a NewGRF of OpenTTD.
 
-![일러스트](https://github.com/user-attachments/assets/14b8e597-126e-4e34-936e-2089f7f04a40)
+<img width="2378" height="1072" alt="일러스트" src="https://github.com/user-attachments/assets/4c0366ef-f703-453e-9a06-9b5934327cdb" />
 
-![일러스트2](https://github.com/user-attachments/assets/6a1e6975-3419-4db3-9d38-eb77536a2c51)
-
-<img width="1674" height="1500" alt="449538075-1a847ef6-c889-4b66-a957-d5959b546dc6" src="https://github.com/user-attachments/assets/00973c25-a476-4e35-bff4-aaed62dc2155" />
+<img width="905" height="900" alt="일러스트2" src="https://github.com/user-attachments/assets/fc98d2d5-25dd-4820-a2c8-bf41d0b49b1d" />
