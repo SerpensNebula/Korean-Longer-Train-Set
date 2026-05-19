@@ -21620,7 +21620,7 @@
                 property {
                     // Common properties
                     name:                           string(STR_NAME_LONGER_EMU_370);
-                    climates_available:             ALL_CLIMATES;
+                    climates_available:             NO_CLIMATE;
                     introduction_date:              date(2030, 1, 1);
                     track_type:                     ELRL;                    
                     engine_class:                   ENGINE_CLASS_ELECTRIC;
